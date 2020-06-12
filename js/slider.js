@@ -12,6 +12,8 @@ class Slider {
         document.getElementById('slide_0' + this.contador).classList.add('on')
         document.getElementById('prev_slide').addEventListener("click", this.prevSlide.bind(this), false)
         document.getElementById('next_slide').addEventListener("click", this.nextSlide.bind(this), false)
+        this.putDots()
+        document.getElementById('dot_0'+this.contador).classList.add('doton')
         if (this.autoload) {
             this.initAutoload();
         }
@@ -22,6 +24,7 @@ class Slider {
         document.getElementById('slide_0' + this.contador).style.transition = '0.5s'
         setTimeout(() => {
             document.getElementById('slide_0' + this.contador).classList.remove('on')
+            document.getElementById('dot_0'+this.contador).classList.remove('doton')
 
             document.getElementById('slide_0' + this.contador).style.marginLeft = '0'
             document.getElementById('slide_0' + this.contador).style.transition = '0'
@@ -31,6 +34,7 @@ class Slider {
                 this.contador = 0;
             }
             document.getElementById('slide_0' + this.contador).classList.add('on')
+            document.getElementById('dot_0'+this.contador).classList.add('doton')
         }, 150);
 
 
@@ -41,6 +45,7 @@ class Slider {
         document.getElementById('slide_0' + this.contador).style.transition = '0.5s'
         setTimeout(() => {
             document.getElementById('slide_0' + this.contador).classList.remove('on')
+            document.getElementById('dot_0'+this.contador).classList.remove('doton')
 
             document.getElementById('slide_0' + this.contador).style.marginLeft = '0'
             document.getElementById('slide_0' + this.contador).style.transition = '0'
@@ -50,6 +55,7 @@ class Slider {
                 this.contador = this.count - 1;
             }
             document.getElementById('slide_0' + this.contador).classList.add('on')
+            document.getElementById('dot_0'+this.contador).classList.add('doton')
         }, 150);
 
     }
@@ -59,4 +65,22 @@ class Slider {
             this.nextSlide()
         }, this.time);
     }
+    putDots(){
+        for (let index = 0; index < this.count; index++) {
+            var dot = document.createElement('div')
+            dot.setAttribute('id','dot_0'+index)
+            dot.setAttribute('index',index)
+            dot.classList.add('dotS')
+            dot.addEventListener("click", this.dotIn, false)
+            document.getElementById('slider_footer').append(dot)
+        }
+    }
+    dotIn(){
+        var position = this.getAttribute('index')
+       // console.log(position)
+       
+        console.log(position)
+    }
+    
+  
 }

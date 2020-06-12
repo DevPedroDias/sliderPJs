@@ -17,3 +17,16 @@ body{
     justify-content: center;
     align-items: center;
 }
+.dotS {
+    border: 1px solid #000;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+div#slider_footer {
+    display: flex;
+}
+.doton{
+    background-color: #000;
+}
