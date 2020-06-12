@@ -20,7 +20,9 @@
 
 .on {
     display: block;
+    transition: 0.25s;
 }
+
 
 .arrows {
     position: absolute;
@@ -43,6 +45,9 @@
     -ms-user-select: none;
     /* Internet Explorer/Edge */
     user-select: none;
-    /* Non-prefixed version, currently
+    /* Non-prefixed version, currently */
 
+}
+#body_slider{
+    overflow: hidden;
 }
